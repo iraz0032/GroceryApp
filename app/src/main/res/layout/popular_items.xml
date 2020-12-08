@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="190dp"
+    android:layout_height="wrap_content"
+    android:layout_margin="2dp"
+    android:elevation="5dp"
+    app:cardElevation="1dp">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        android:orientation="vertical"
+        android:padding="5dp">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:background="#ff22"
+            app:cardBackgroundColor="#ff22"
+            app:cardCornerRadius="8dp">
+
+            <TextView
+                android:id="@+id/popularProductDiscountTextId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/sourcesanspro_regular"
+                android:padding="3dp"
+                android:text="25%"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/colorWhite"
+                android:textStyle="bold" />
+        </androidx.cardview.widget.CardView>
+
+        <ImageView
+            android:id="@+id/popularProductImageId"
+            android:layout_width="175dp"
+            android:layout_height="175dp"
+            android:adjustViewBounds="true"
+            android:scaleType="center"
+            android:src="@drawable/apple" />
+
+        <TextView
+            android:id="@+id/popularProductTitleId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/popularProductImageId"
+            android:fontFamily="@font/sourcesanspro_regular"
+            android:text="Apple"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/colorBlack" />
+
+
+        <TextView
+            android:id="@+id/popularProductPriceId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/popularProductTitleId"
+            android:layout_marginTop="1dp"
+            android:fontFamily="@font/sourcesanspro_regular"
+            android:text="$10.00"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/popularProductDiscountPriceId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/popularProductPriceId"
+            android:layout_marginTop="1dp"
+            android:fontFamily="@font/sourcesanspro_regular"
+            android:text="@string/_2_00"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="#6B6B6B"
+            android:textStyle="italic" />
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

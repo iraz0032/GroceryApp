@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Checkout.CheckoutFragment.OrderFragment">
+
+    <RelativeLayout
+        android:id="@+id/relativePayBtnLayoutId"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@color/colorWhite">
+
+        <Button
+            android:id="@+id/previousToPayment"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
+            android:text="Previous"
+            style="@style/btn_bg"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/paymentNextBtnId"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
+            android:layout_toRightOf="@id/previousToPayment"
+            android:text="Submit order"
+            android:drawablePadding="30dp"
+            android:drawableRight="@drawable/ic_baseline_done_24"
+            style="@style/btn_bg"
+            android:textAllCaps="false" />
+
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

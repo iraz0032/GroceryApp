@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#f2f2f2"
+    tools:context=".Checkout.CheckOutActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/checkOutActivityToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary">
+
+        <TextView
+            android:id="@+id/CheckOutTitleTexId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/sourcesanspro_regular"
+            android:text="Checkout"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#fff"
+            android:textStyle="normal" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <RelativeLayout
+        android:layout_below="@+id/checkOutActivityToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#f2f2f2"
+        android:id="@+id/checkLinear1Id"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/checkImageView1"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:backgroundTint="#FFA000"
+                android:src="@drawable/ic_round_error_24" />
+
+            <View
+                android:id="@+id/line1Id"
+                android:layout_width="80dp"
+                android:layout_height="1dp"
+                android:layout_centerInParent="true"
+                android:layout_toEndOf="@+id/checkImageView1"
+                android:background="@color/colorWhite"
+                android:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/checkImageView2"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_toEndOf="@id/line1Id"
+                android:src="@drawable/ic_baseline_radio_button_checked_24"
+                android:visibility="visible" />
+
+            <View
+                android:id="@+id/line2Id"
+                android:layout_width="80dp"
+                android:layout_height="1dp"
+                android:layout_centerInParent="true"
+                android:layout_toEndOf="@+id/checkImageView2"
+                android:background="@color/colorWhite"
+                android:visibility="invisible" />
+
+            <ImageView
+                android:id="@+id/checkImageView3"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_toEndOf="@id/line2Id"
+                android:src="@drawable/share"
+                android:visibility="invisible" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/shippingTextId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Shipping"
+            android:fontFamily="@font/sourcesanspro_regular"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="62dp"
+            android:textStyle="bold"
+            android:textColor="@color/colorBlack"
+            />
+
+        <TextView
+            android:id="@+id/paymentTextId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Payment"
+            android:layout_marginStart="174dp"
+            android:layout_marginTop="30dp"
+            android:textStyle="bold"
+            android:fontFamily="@font/sourcesanspro_regular"/>
+        <TextView
+            android:id="@+id/orderTextId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Order"
+            android:layout_marginStart="292dp"
+            android:layout_marginTop="30dp"
+            android:textStyle="bold"
+            android:visibility="invisible"
+            android:fontFamily="@font/sourcesanspro_regular"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_below="@id/checkLinear1Id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
+        android:id="@+id/checkMainLayout"
+        android:layout_above="@+id/relativeBtnLayoutId"
+        >
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/checkOutFrameLayoutId"
+           />
+    </RelativeLayout>
+
+
+</RelativeLayout>

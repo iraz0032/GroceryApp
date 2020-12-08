@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <group android:checkableBehavior="none">
+        <item
+            android:id="@+id/changePassword"
+            android:icon="@drawable/change_password"
+            android:title="Change Password"
+            app:showAsAction="always" />
+        <item
+            android:id="@+id/myOrders"
+            android:icon="@drawable/my_order"
+            android:title="My Orders"
+            app:showAsAction="always" />
+        <item
+            android:id="@+id/addLocation"
+            android:icon="@drawable/ic_outline_add_location_24"
+            android:title="Location"
+            app:showAsAction="always" />
+        <item
+            android:id="@+id/logOutId"
+            android:icon="@drawable/logout"
+            android:title="Logout"
+            app:showAsAction="always" />
+    </group>
+
+    <item
+        android:checked="true"
+        android:title="Other">
+        <menu>
+            <item
+                android:id="@+id/categoryId"
+                android:icon="@drawable/category"
+                android:title="All Category"
+                app:showAsAction="always" />
+        </menu>
+
+    </item>
+    <item
+        android:checked="true"
+        android:title="Communicate">
+
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/shareId"
+                    android:icon="@drawable/share"
+                    android:title="Share"
+                    app:showAsAction="never" />
+                <item
+                    android:id="@+id/rateUsId"
+                    android:icon="@drawable/rate_us"
+                    android:title="Rate us"
+                    app:showAsAction="never" />
+                <item
+                    android:id="@+id/aboutUs"
+                    android:icon="@drawable/about"
+                    android:title="About"
+                    app:showAsAction="never" />
+            </group>
+        </menu>
+
+    </item>
+
+</menu>

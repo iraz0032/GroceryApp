@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/toolSearchId"
+        android:icon="@drawable/ic_outline_search_24"
+        android:title="Notification"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/toolNotificationId"
+        android:icon="@drawable/ic_baseline_notifications_24"
+        android:title="Notification"
+        app:showAsAction="always" />
+</menu>

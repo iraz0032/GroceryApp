@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Checkout.CheckoutFragment.ShippingFragment">
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:id="@+id/contractDetailsCardId"
+                >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/sourcesanspro_regular"
+                        android:text="CONTRACT DETAILS"
+                        android:id="@+id/contractDetailsTextId"
+                        android:textAllCaps="false"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:id="@+id/firstNameShippingEditText"
+                        android:layout_below="@+id/contractDetailsTextId"
+
+                        >
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="First Name"
+                            android:inputType="text" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:id="@+id/lastNameShippingEditText"
+                        android:layout_below="@+id/firstNameShippingEditText"
+                        >
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Last Name"
+                            android:inputType="text" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:id="@+id/emailShippingEditText"
+                        android:layout_below="@+id/lastNameShippingEditText"
+                        >
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Email"
+                            android:inputType="textEmailAddress" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:id="@+id/phoneShippingEditText"
+                        android:layout_below="@+id/emailShippingEditText"
+                        >
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Phone"
+                            android:inputType="phone" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/shippingAddressCardId"
+                android:layout_below="@+id/contractDetailsCardId"
+                android:layout_marginTop="5dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    >
+
+                    <TextView
+                        android:id="@+id/shippingAddressTextId"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/sourcesanspro_regular"
+                        android:text="SHIPPING ADDRESS"
+                        android:textAllCaps="false"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+
+                    <com.dev.materialspinner.MaterialSpinner
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:id="@+id/spinner1Id"
+                        android:layout_below="@+id/shippingAddressTextId"
+                        />
+
+                    <com.dev.materialspinner.MaterialSpinner
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:id="@+id/spinner2Id"
+                        android:layout_below="@+id/spinner1Id"
+                        />
+
+                    <com.dev.materialspinner.MaterialSpinner
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:id="@+id/spinner3Id"
+                        android:layout_below="@+id/spinner2Id"
+                        />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:id="@+id/zipCodeShippingEditTextId"
+                        android:layout_below="@+id/spinner3Id"
+                        >
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Zip Code"
+                            android:inputType="phone" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+            <View
+                android:layout_below="@id/shippingAddressCardId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="70dp" />
+        </RelativeLayout>
+
+    </androidx.core.widget.NestedScrollView>
+    <RelativeLayout
+        android:id="@+id/relativeBtnLayoutId"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@color/colorWhite">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/totalPriceId"
+            android:text="Total : $100"
+            android:textSize="20sp"
+            android:layout_centerVertical="true"
+            android:layout_margin="20dp"
+            android:textStyle="bold"
+            android:fontFamily="@font/sourcesanspro_regular"
+            android:textColor="@color/colorBlack"
+            />
+
+        <Button
+            android:id="@+id/checkOutNextBtnId"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
+            android:layout_alignParentEnd="true"
+            android:layout_toEndOf="@id/totalPriceId"
+            android:text="Next"
+            style="@style/btn_bg"
+            android:textAllCaps="false" />
+    </RelativeLayout>
+</RelativeLayout>
