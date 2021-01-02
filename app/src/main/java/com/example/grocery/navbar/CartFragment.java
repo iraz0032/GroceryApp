@@ -2,9 +2,11 @@ package com.example.grocery.navbar;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -13,15 +15,17 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.grocery.Checkout.CheckOutActivity;
+import com.example.grocery.ProductDetailActivity;
 import com.example.grocery.R;
 import com.example.grocery.adapters.CartAdapter;
 import com.google.android.material.button.MaterialButton;
 
 
-public class CartFragment extends Fragment {
+public class CartFragment extends Fragment implements CartAdapter.OnItemClickListener {
     private RecyclerView cartRecyclerView;
     private Toolbar toolbar;
     private MaterialButton checkOutBtn;
+    public static int cartItemSize;
     private int[] itemsImages = {R.drawable.apple, R.drawable.apple, R.drawable.apple, R.drawable.apple, R.drawable.apple, R.drawable.apple, R.drawable.apple, R.drawable.apple, R.drawable.apple, R.drawable.apple, R.drawable.apple, R.drawable.apple};
     private String[] itemsTitles = {"apple", "apple", "apple", "apple", "apple", "apple", "apple", "apple", "apple", "apple", "apple", "apple"};
 
@@ -38,7 +42,12 @@ public class CartFragment extends Fragment {
 
         ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
         CartAdapter adapter = new CartAdapter(getContext(), itemsImages, itemsTitles);
+
+        cartItemSize=itemsTitles.length;
         cartRecyclerView.setAdapter(adapter);
+
+        //set listener on item
+        adapter.setOnclickListener(CartFragment.this);
 
         checkOutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,6 +56,33 @@ public class CartFragment extends Fragment {
                 startActivity(intent);
             }
         });
+
         return view;
+
+        //this method for ,when user wants to see product details from cart option ,it will intent
+        //productDetailsActivity
+
+
+    }
+
+    public int getCartItemSize(){
+        for(int i = 0; i<itemsTitles.length ;i ++)
+        {
+            Log.d("taaaaag","okk");
+            cartItemSize++;
+        }
+        return cartItemSize;
+    }
+
+
+    @Override
+    public void OnClickListener(int position) {
+        for (int i = 0; i < itemsTitles.length; i++) {
+            if (position == i) {
+                Intent intent = new Intent(getActivity(), ProductDetailActivity.class);
+                startActivity(intent);
+
+            }
+        }
     }
 }

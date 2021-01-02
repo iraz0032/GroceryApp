@@ -10,6 +10,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -38,6 +39,7 @@ public class CheckOutActivity extends AppCompatActivity {
     private OrderFragment orderFragment;
     private List<Fragment> fragmentList = new ArrayList<>();
     public static CheckOutActivity checkOutActivity=null;
+    private Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,6 +56,19 @@ public class CheckOutActivity extends AppCompatActivity {
         order = findViewById(R.id.orderTextId);
         view1 = findViewById(R.id.line1Id);
         view2 = findViewById(R.id.line2Id);
+        toolbar = findViewById(R.id.checkOutActivityToolbar);
+
+        //add toolbar
+        setSupportActionBar(toolbar);
+
+        //remove app title from toolbar
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+        // add back arrow to toolbar
+        if (getSupportActionBar() != null){
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+        }
 
         //initiate_fragment
         shippingFragment = new ShippingFragment();

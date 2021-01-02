@@ -15,6 +15,7 @@
         android:padding="@dimen/dp_10">
 
         <TextView
+            android:textColor="@color/colorTitle"
             android:id="@+id/detailsTextId"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -23,12 +24,21 @@
             android:textAllCaps="false"
             android:textAppearance="?android:attr/textAppearanceSmall" />
 
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/cardTypeBankCardId"
+            style="@style/Widget.AppCompat.Spinner"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@+id/detailsTextId"
+            android:prompt="@style/Widget.AppCompat.Spinner.DropDown"
+            android:spinnerMode="dropdown" />
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/creditCardNumber"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/detailsTextId"
+            android:layout_below="@+id/cardTypeBankCardId"
             android:layout_marginTop="5dp">
 
             <EditText
@@ -50,7 +60,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Name on card"
-                android:inputType="date" />
+                android:inputType="text" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -95,10 +105,11 @@
         android:padding="@dimen/dp_10">
 
         <TextView
+            android:textColor="@color/colorTitle"
             android:id="@+id/saveCardInfoId"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
+            android:layout_marginTop="7dp"
             android:fontFamily="@font/sourcesanspro_regular"
             android:text="Save your card info"
             android:textAllCaps="false"
@@ -108,7 +119,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-
+            style="@style/Widget.AppCompat.CompoundButton.Switch"
+            app:thumbTint="@color/colorPrimary"
+            app:trackTint="@color/colorPrimaryLight"
             />
     </RelativeLayout>
 

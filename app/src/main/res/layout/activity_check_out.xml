@@ -3,11 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:background="#f2f2f2"
     tools:context=".Checkout.CheckOutActivity">
 
     <androidx.appcompat.widget.Toolbar
+        app:navigationIcon="@drawable/navigate_back"
         android:id="@+id/checkOutActivityToolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -29,6 +31,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#f2f2f2"
+        android:padding="3dp"
         android:id="@+id/checkLinear1Id"
         android:orientation="vertical">
 
@@ -87,7 +90,7 @@
             android:text="Shipping"
             android:fontFamily="@font/sourcesanspro_regular"
             android:layout_marginTop="30dp"
-            android:layout_marginStart="62dp"
+            android:layout_marginStart="55dp"
             android:textStyle="bold"
             android:textColor="@color/colorBlack"
             />
@@ -97,7 +100,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Payment"
-            android:layout_marginStart="174dp"
+            android:layout_marginStart="167dp"
             android:layout_marginTop="30dp"
             android:textStyle="bold"
             android:fontFamily="@font/sourcesanspro_regular"/>
@@ -106,7 +109,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Order"
-            android:layout_marginStart="292dp"
+            android:layout_marginStart="289dp"
             android:layout_marginTop="30dp"
             android:textStyle="bold"
             android:visibility="invisible"
@@ -128,6 +131,5 @@
             android:id="@+id/checkOutFrameLayoutId"
            />
     </RelativeLayout>
-
 
 </RelativeLayout>

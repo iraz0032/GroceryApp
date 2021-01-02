@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#f2f2f2"
     tools:context=".navbar.WishlistFragment">
 
     <androidx.recyclerview.widget.RecyclerView
@@ -14,6 +15,4 @@
         android:focusable="true"
 
         />
-
-
 </LinearLayout>

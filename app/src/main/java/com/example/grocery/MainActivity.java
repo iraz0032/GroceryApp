@@ -14,17 +14,17 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.cardview.widget.CardView;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.viewpager.widget.PagerAdapter;
-import androidx.viewpager.widget.ViewPager;
 
 import com.example.grocery.adapters.AllCategoryAdapter;
 import com.example.grocery.navbar.CartFragment;
 import com.example.grocery.navbar.HomeFragment;
 import com.example.grocery.navbar.WishlistFragment;
+import com.google.android.material.badge.BadgeDrawable;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.navigation.NavigationView;
@@ -35,12 +35,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private TextView titleText;
     private NavigationView navigationView;
     private DrawerLayout drawerLayout;
-    private ViewPager navBarTransaction;
     private BottomNavigationView bottomNavigationView;
     private HomeFragment homeFragment;
     private WishlistFragment wishlistFragment;
     private CartFragment cartFragment;
-
+    public static MainActivity mainActivity = null;
+    private BadgeDrawable badge;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,10 +51,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView = findViewById(R.id.navigationDrawerId);
         drawerLayout = findViewById(R.id.drawerLayoutId);
         toolbar.setNavigationIcon(R.drawable.drawer_icon);
-        navBarTransaction = findViewById(R.id.viewPagerId);
         bottomNavigationView = findViewById(R.id.bottomNavId);
         //set toolbar
         setSupportActionBar(toolbar);
+
 
         //remove app title from toolbar
         getSupportActionBar().setDisplayShowTitleEnabled(false);
@@ -65,6 +65,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         //initiate fragment call method
         fragmentInitiate();
 
+        // fragment class initiate
+        homeFragment = new HomeFragment();
+        wishlistFragment = new WishlistFragment();
+        cartFragment = new CartFragment();
+
+        //auto set home fragment when open app [using method]
+        changeFragment(homeFragment);
 
         ActionBarDrawerToggle drawerToggle = new ActionBarDrawerToggle(
                 this,
@@ -88,56 +95,23 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.drawer_icon);
 
 
-        PagerAdapter adapter = new com.example.grocery.adapters.PagerAdapter(getSupportFragmentManager(), 0);
+        int menuItemId = bottomNavigationView.getMenu().getItem(2).getItemId();
+         badge = bottomNavigationView.getOrCreateBadge(menuItemId);
+        badge.setNumber(cartFragment.getCartItemSize());
 
-        //viewpager adapter class sent fragment by method
-        ((com.example.grocery.adapters.PagerAdapter) adapter).addFragment("Home", homeFragment);
-        ((com.example.grocery.adapters.PagerAdapter) adapter).addFragment("WishList", wishlistFragment);
-        ((com.example.grocery.adapters.PagerAdapter) adapter).addFragment("Cart", cartFragment);
 
-        //set default item
-        navBarTransaction.setCurrentItem(0);
-
-        //bottom navigation transaction with icon change
-        changeNavBarPosition();
-
-        //set adapter
-        navBarTransaction.setAdapter(adapter);
+        getIntentResponse();
 
     }
 
-    //bottom navigation transaction with icon change method
-    private void changeNavBarPosition() {
-        navBarTransaction.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+    private void getIntentResponse() {
+        Intent intent = getIntent();
+        String data = intent.getStringExtra("tag");
+        if(data!=null && data.contentEquals("1"))
+        {
+            bottomNavigationView.setSelectedItemId(R.id.cartNavId);
+        }
 
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-                switch (position) {
-                    case 0:
-                        bottomNavigationView.getMenu().findItem(R.id.homeNavId).setChecked(true);
-                        titleText.setText("Home");
-
-                        break;
-                    case 1:
-                        bottomNavigationView.getMenu().findItem(R.id.favoriteNavId).setChecked(true);
-                        titleText.setText("WishList");
-                        break;
-                    case 2:
-                        bottomNavigationView.getMenu().findItem(R.id.cartNavId).setChecked(true);
-                        titleText.setText("Cart");
-                        break;
-                }
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-
-            }
-        });
     }
 
     //inflate menu items
@@ -169,16 +143,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         //bottom navigation items listener
         if (item.getItemId() == R.id.homeNavId) {
-            navBarTransaction.setCurrentItem(0);
+            changeFragment(homeFragment);
             drawerLayout.closeDrawers();
         }
         if (item.getItemId() == R.id.favoriteNavId) {
-            navBarTransaction.setCurrentItem(1);
+            changeFragment(wishlistFragment);
             drawerLayout.closeDrawers();
         }
         if (item.getItemId() == R.id.cartNavId) {
-            navBarTransaction.setCurrentItem(2);
+            changeFragment(cartFragment);
             drawerLayout.closeDrawers();
+            badge.clearNumber();
+            badge.clearColorFilter();
         }
         if (item.getItemId() == R.id.categoryId) {
             categoryNavItems();
@@ -250,6 +226,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         builder.show();
         Toast.makeText(this, "All Category", Toast.LENGTH_SHORT).show();
         drawerLayout.closeDrawers();
+    }
+
+    private void changeFragment(Fragment fragment) {
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.mainFrameLayoutId, fragment);
+        fragmentTransaction.commit();
     }
 
 }

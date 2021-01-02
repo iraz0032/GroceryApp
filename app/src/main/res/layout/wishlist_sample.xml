@@ -10,69 +10,142 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        android:layout_marginEnd="2dp"
-        app:cardElevation="15dp">
+        android:layout_marginBottom="5dp"
+        android:clickable="true"
+        android:elevation="0dp"
+        android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        app:cardElevation="0dp"
+        app:cardMaxElevation="0dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="?attr/selectableItemBackground"
-            android:clickable="true"
-            android:focusable="true"
-            android:orientation="horizontal">
 
-            <ImageView
-                android:id="@+id/wishListImageItemId"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:layout_margin="5dp"
-                android:src="@drawable/ic_launcher_background" />
+            android:baselineAligned="false"
+            android:orientation="horizontal"
+            android:padding="5dp"
+            android:weightSum="4">
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_gravity="center"
+                android:layout_weight="3"
 
-                <TextView
-                    android:id="@+id/wishListTitleId"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/wishListImageItemId"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:layout_margin="5dp"
+                    android:src="@drawable/ic_launcher_background" />
+
+                <LinearLayout
+                    android:id="@+id/cartItemsLinear1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toLeftOf="@+id/deleteButtonRelativeLayout"
+                    android:layout_toRightOf="@+id/wishListImageItemId"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/wishListTitleId"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:text="Grocery app"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/cartProductDescId"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="3dp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:text="This is a description of this products"
+                        android:textAlignment="textStart"
+                        android:textColor="#686767"
+                        android:textSize="14sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/wishListPriceTagId"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="3dp"
+                            android:fontFamily="@font/roboto_regular"
+                            android:text="$ 2.04"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/discountPriceInWishListItemTextId"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="3dp"
+                            android:fontFamily="@font/roboto_regular"
+                            android:text="@string/_1_00"
+                            android:textColor="#6B6B6B"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="3dp"
+                            android:fontFamily="@font/roboto_regular"
+                            android:text="50 % OFF"
+                            android:textColor="@color/colorRed"
+                            android:textSize="13sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/deleteButtonRelativeLayout"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="5dp"
-                    android:fontFamily="@font/sourcesanspro_regular"
-                    android:text="Grocery app"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true">
 
-                <TextView
-                    android:id="@+id/cartPriceTagId"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="9dp"
-                    android:fontFamily="@font/sourcesanspro_regular"
-                    android:text="Price  -  $2.04"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
+                    <ImageView
+                        android:id="@+id/wishListDeleteItemsId"
+                        android:layout_width="25dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_gravity="center|end"
+                        android:layout_marginEnd="10dp"
+                        android:background="?attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:src="@drawable/delete" />
+                </LinearLayout>
+            </RelativeLayout>
+
+
         </LinearLayout>
 
-        <ImageView
-            android:id="@+id/cartDeleteItemsId"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_gravity="end|center"
-            android:layout_marginEnd="10dp"
-            android:background="?attr/selectableItemBackground"
-            android:clickable="true"
-            android:focusable="true"
-            android:src="@drawable/delete" />
+
     </androidx.cardview.widget.CardView>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp" />
+
+
 </LinearLayout>

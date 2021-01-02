@@ -31,10 +31,11 @@
                 app:itemRippleColor="@color/colorPrimary"
                 app:itemTextAppearanceActive="@style/fontStyle"
                 app:itemTextAppearanceInactive="@style/fontStyle"
+
                 app:menu="@menu/navs_items" />
 
-            <androidx.viewpager.widget.ViewPager
-                android:id="@+id/viewPagerId"
+            <FrameLayout
+                android:id="@+id/mainFrameLayoutId"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="55dp" />

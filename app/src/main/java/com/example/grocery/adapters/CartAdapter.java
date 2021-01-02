@@ -16,7 +16,17 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
     private Context context;
     private int[] itemsImages;
     private String[] itemsTitles;
+    private OnItemClickListener onItemClickListener;
 
+    //this for click on items listener interface method
+    public interface OnItemClickListener{
+        void OnClickListener(int position);
+    }
+
+    public void setOnclickListener(OnItemClickListener onClickListener)
+    {
+        onItemClickListener = onClickListener;
+    }
 
     public CartAdapter(Context context, int[] itemsImages, String[] itemsTitles) {
         this.context = context;
@@ -28,7 +38,6 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.cart_sample, parent, false);
-
         return new ViewHolder(view);
     }
 
@@ -48,11 +57,28 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
         ImageView imageView;
         TextView textView;
 
-        public ViewHolder(@NonNull View itemView) {
+        public ViewHolder(@NonNull final View itemView) {
             super(itemView);
 
             imageView = itemView.findViewById(R.id.cartImageItemId);
             textView = itemView.findViewById(R.id.cartTitleId);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    if(onItemClickListener!=null)
+                    {
+                        int position = getAdapterPosition();
+                        if(position!=RecyclerView.NO_POSITION)
+                        {
+                            onItemClickListener.OnClickListener(position);
+                        }
+                    }
+
+                }
+            });
+
         }
     }
 }

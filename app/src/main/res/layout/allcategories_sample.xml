@@ -11,9 +11,10 @@
     <androidx.cardview.widget.CardView
         android:layout_width="60dp"
         android:layout_height="60dp"
+        android:background="#f2f2f2"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
-        app:cardCornerRadius="40dp">
+        app:cardCornerRadius="8dp">
 
         <ImageView
             android:id="@+id/cateImage"

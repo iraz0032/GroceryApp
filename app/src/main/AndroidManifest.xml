@@ -9,9 +9,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SearchItemsActivity"></activity>
-        <activity android:name=".Checkout.CheckOutActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity" />
+        <activity
+            android:name=".Checkout.CheckoutFragment.SubmitSuccessfulActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".ProductDetailActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity android:name=".SearchItemsActivity" />
+        <activity
+            android:name=".Checkout.CheckOutActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

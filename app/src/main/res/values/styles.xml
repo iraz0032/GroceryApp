@@ -22,4 +22,14 @@
     <style name="btn_bg">
         <item name="android:background">@drawable/btn_bg</item>
     </style>
+    
+    <style name="myAlertStyle" parent="Theme.AppCompat.DayNight.Dialog.Alert"> 
+        <item name="colorAccent" >@color/colorPrimary</item>
+
+    </style>
+
+    <style name="TextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">#fff</item>
+
+    </style>
 </resources>

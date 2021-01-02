@@ -19,7 +19,6 @@
             android:padding="10dp">
 
             <com.smarteist.autoimageslider.SliderView
-
                 android:id="@+id/imageSlider"
                 android:layout_width="match_parent"
                 android:layout_height="180dp"
@@ -32,7 +31,7 @@
                 app:sliderIndicatorOrientation="horizontal"
                 app:sliderIndicatorPadding="3dp"
                 app:sliderIndicatorRadius="2dp"
-                app:sliderIndicatorSelectedColor="#5A5A5A"
+                app:sliderIndicatorSelectedColor="@color/colorPrimary"
                 app:sliderIndicatorUnselectedColor="#FFF"
                 app:sliderScrollTimeInSec="1"
                 app:sliderStartAutoCycle="true" />
@@ -44,6 +43,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/linearId"
             android:background="#fff"
+
             android:elevation="10dp">
 
             <TextView
@@ -80,7 +80,6 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/categoryViewAllTextBtn"
                 android:layout_margin="5dp"
-                android:layout_marginTop="0dp"
                 android:clickable="true"
                 android:focusable="true"
                 android:padding="10dp"
@@ -94,7 +93,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/relativeId1"
             android:layout_marginTop="5dp"
-            android:background="#fff"
+            android:background="#f2f2f2"
             android:elevation="10dp">
 
             <TextView
@@ -102,7 +101,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:fontFamily="@font/sourcesanspro_regular"
-                android:paddingLeft="4dp"
+                android:paddingEnd="4dp"
                 android:text="@string/popular_product"
                 android:textColor="#000"
                 android:textSize="16sp"
@@ -130,16 +129,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/btn"
-                android:layout_centerInParent="true"
-                android:orientation="vertical"
-                tools:itemCount="5"
-                tools:listitem="@layout/popular_items" />
+                android:layout_centerHorizontal="true"
+                android:orientation="vertical" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
-                android:layout_marginTop="1140dp" />
+                android:layout_marginTop="1230dp" />
         </RelativeLayout>
 
 

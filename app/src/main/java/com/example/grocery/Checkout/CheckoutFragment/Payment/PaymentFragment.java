@@ -20,6 +20,7 @@ import com.example.grocery.Checkout.CheckoutFragment.Payment.PaymentFragments.Ba
 import com.example.grocery.Checkout.CheckoutFragment.Payment.PaymentFragments.PaypalFragment;
 import com.example.grocery.Checkout.CheckoutFragment.ShippingFragment;
 import com.example.grocery.R;
+import com.google.android.material.button.MaterialButton;
 
 
 public class PaymentFragment extends Fragment implements View.OnClickListener {
@@ -28,9 +29,9 @@ public class PaymentFragment extends Fragment implements View.OnClickListener {
     private CardView creditCard, paypalCard, mobileBankingCard;
     private LinearLayout paypalLinear, creditCardLinear, mobileBankingLinear;
     private ImageView creditImage, paypalImage, mobileBankingImage;
-    private Button paymentNextBtn,previousToShipping;
+    private MaterialButton paymentNextBtn, previousToShipping;
     private OrderFragment orderFragment;
-    private ImageView imageView1,imageView2,imageView3;
+    private ImageView imageView1, imageView2, imageView3;
     private TextView shipping, payment, order;
     private View view1, view2;
     private ShippingFragment shippingFragment;
@@ -107,6 +108,9 @@ public class PaymentFragment extends Fragment implements View.OnClickListener {
 
             creditImage.setColorFilter(getResources().getColor(R.color.colorPrimary));
             fragmentTransaction(bankCardFragment);
+            creditCard.setElevation(25);
+            paypalCard.setCardElevation(3);
+            mobileBankingCard.setCardElevation(3);
             mobileBankingLinear.setBackground(getResources().getDrawable(R.drawable.payment_method_card_bg_without_stroke));
             creditCardLinear.setBackground(getResources().getDrawable(R.drawable.payment_method_card_bg));
             paypalLinear.setBackground(getResources().getDrawable(R.drawable.payment_method_card_bg_without_stroke));
@@ -118,6 +122,9 @@ public class PaymentFragment extends Fragment implements View.OnClickListener {
             creditImage.setColorFilter(Color.GRAY);
             mobileBankingImage.setColorFilter(Color.GRAY);
             fragmentTransaction(paypalFragment);
+            paypalCard.setCardElevation(25);
+            creditCard.setCardElevation(3);
+            mobileBankingCard.setCardElevation(3);
             mobileBankingLinear.setBackground(getResources().getDrawable(R.drawable.payment_method_card_bg_without_stroke));
             paypalLinear.setBackground(getResources().getDrawable(R.drawable.payment_method_card_bg));
             creditCardLinear.setBackground(getResources().getDrawable(R.drawable.payment_method_card_bg_without_stroke));
@@ -127,6 +134,9 @@ public class PaymentFragment extends Fragment implements View.OnClickListener {
             mobileBankingImage.setColorFilter(getResources().getColor(R.color.colorPrimary));
             paypalImage.setColorFilter(Color.GRAY);
             creditImage.setColorFilter(Color.GRAY);
+            paypalCard.setCardElevation(3);
+            creditCard.setCardElevation(3);
+            mobileBankingCard.setCardElevation(25);
             mobileBankingLinear.setBackground(getResources().getDrawable(R.drawable.payment_method_card_bg));
             creditCardLinear.setBackground(getResources().getDrawable(R.drawable.payment_method_card_bg_without_stroke));
             paypalLinear.setBackground(getResources().getDrawable(R.drawable.payment_method_card_bg_without_stroke));
@@ -141,8 +151,7 @@ public class PaymentFragment extends Fragment implements View.OnClickListener {
             payment.setTextColor(Color.GRAY);
             fragmentTransaction2(orderFragment);
         }
-        if(v.getId()==R.id.previousToShipping)
-        {
+        if (v.getId() == R.id.previousToShipping) {
             view1.setVisibility(View.VISIBLE);
             view1.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
             imageView2.setVisibility(View.VISIBLE);

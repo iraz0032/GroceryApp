@@ -1,6 +1,7 @@
 package com.example.grocery.navbar;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -16,6 +17,7 @@ import androidx.recyclerview.widget.OrientationHelper;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
+import com.example.grocery.ProductDetailActivity;
 import com.example.grocery.R;
 import com.example.grocery.adapters.AllCategoryAdapter;
 import com.example.grocery.adapters.ImageSliderAdapter;
@@ -26,7 +28,7 @@ import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
 
 
-public class HomeFragment extends Fragment implements View.OnClickListener {
+public class HomeFragment extends Fragment implements View.OnClickListener, PopularProduct.OnItemClickListener {
 
     private int[] categoryImages = {R.drawable.meat, R.drawable.fish, R.drawable.broccoli, R.drawable.soda,
             R.drawable.water, R.drawable.medicine, R.drawable.apple};
@@ -34,9 +36,10 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     private String[] categoryTitle;
     private RecyclerView categoryRecycler, popularProduct;
     private TextView allCategoryViewAllBtn;
-    private PopularProduct popularProductAdapter;
+    // private PopularProduct popularProductAdapter;
     private AllCategoryAdapter adapter;
     private SliderView sliderView;
+    private View view;
 
     private int[] sliderImageItems = {R.drawable.p_bg, R.drawable.p_bg, R.drawable.p_bg, R.drawable.p_bg};
 
@@ -45,7 +48,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_home, container, false);
+        view = inflater.inflate(R.layout.fragment_home, container, false);
         //id
 
         categoryRecycler = view.findViewById(R.id.allCategoryRecyclerViewItem);
@@ -63,11 +66,14 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         popularProduct.setItemAnimator(new DefaultItemAnimator());
         //add adapter class for send data
         adapter = new AllCategoryAdapter(getContext(), categoryTitle, categoryImages);
-        popularProductAdapter = new PopularProduct(getContext(), categoryTitle, categoryImages);
+
+        PopularProduct popularProductAdapter = new PopularProduct(getContext(), categoryTitle, categoryImages);
         categoryRecycler.setAdapter(adapter);
         popularProduct.setAdapter(popularProductAdapter);
 
         allCategoryViewAllBtn.setOnClickListener(this);
+
+        popularProductAdapter.setOnclickListener(HomeFragment.this);
 
         //slider image method
         slider();
@@ -91,6 +97,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         int id = v.getId();
 
+        //show all category
         if (id == R.id.categoryViewAllTextBtn) {
             showCategoryDialog();
         }
@@ -120,6 +127,19 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                 dialog.dismiss();
             }
         });
+
         builder.show();
+    }
+
+
+    @Override
+    public void OnClickListener(int position) {
+
+        for (int i = 0; i < categoryTitle.length; i++) {
+            if (i == position) {
+                Intent intent = new Intent(getContext(), ProductDetailActivity.class);
+                startActivity(intent);
+            }
+        }
     }
 }

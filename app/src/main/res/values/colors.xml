@@ -5,4 +5,9 @@
     <color name="colorAccent">#03DAC5</color>
     <color name="colorBlack">#000000</color>
     <color name="colorWhite">#FFF</color>
+    <color name="colorRed">#D32F2F</color>
+    <color name="colorPrimaryLight">#B9F4A9</color>
+    <color name="colorPrimaryLight2">#EAFFE5</color>
+    <color name="colorTitle">#898989</color>
+    <color name="boxColor">#FEFDFF</color>
 </resources>
